@@ -1,0 +1,28 @@
+{
+  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/postgres/postgres.schema.json",
+  "flavor": "k8s",
+  "metadata": {},
+  "kind": "postgres",
+  "disabled": true,
+  "version": "0.1",
+  "spec": {
+    "postgres_version": "15.3.0",
+    "size": {
+      "writer": {
+        "cpu": "250m",
+        "memory": "500Mi",
+        "cpu_limit": "500m",
+        "memory_limit": "1Gi",
+        "volume": "10Gi"
+      },
+      "reader": {
+        "cpu": "250m",
+        "memory": "256Mi",
+        "cpu_limit": "500m",
+        "memory_limit": "512Mi",
+        "volume": "10Gi",
+        "instance_count": 0
+      }
+    }
+  }
+}
