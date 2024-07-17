@@ -1,3 +1,8 @@
 {
-  "clusterVariablesMeta": {}
+  "clusterVariablesMeta": {
+    "facets_test_secret": {
+      "secret": true,
+      "global": true
+    }
+  }
 }
