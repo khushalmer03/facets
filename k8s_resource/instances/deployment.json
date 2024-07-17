@@ -10,6 +10,7 @@
       "kind": "Pod",
       "metadata": {
         "name": "nginx",
+        "namespace": "facets",
         "annotations": {
           "service.beta.kubernetes.io/aws-load-balancer-scheme": "internal",
           "service.beta.kubernetes.io/aws-load-balancer-type": "nlb"
