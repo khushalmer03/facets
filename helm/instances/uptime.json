@@ -1,18 +1,34 @@
 {
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/helm/helm.schema.json",
   "kind": "helm",
   "flavor": "k8s",
-  "disabled": true,
+  "disabled": false,
   "metadata": {},
   "version": "0.1",
   "spec": {
     "helm": {
-      "repository": "https://helm.datadoghq.com",
-      "chart": "datadog",
-      "namespace": "datadog",
+      "chart": "polymorphic-app",
+      "repository": "https://improwised.github.io/charts/",
+      "namespace": "uptime",
       "wait": false
     },
     "values": {
+      "env": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "services": [
+        {
+          "healthcheck": {
+            "enabled": false
+          },
+          "image": {
+            "repository": "louislam/uptime-kuma",
+            "tag": "1.23.1"
+          }
+        }
+      ],
       "datadog": {
         "podLabelsAsTags": {
           "managed_by": "facets",
