@@ -1,18 +1,24 @@
 {
   "kind": "ingress",
   "flavor": "nginx_k8s_native",
-  "$schema": "https://facets-cloud.github.io/facets-schemas/schemas/ingress/ingress.schema.json",
-  "disabled": true,
+  "disabled": false,
   "version": "0.1",
   "metadata": {
     "annotations": {}
   },
   "spec": {
-    "private": false,
     "basic_auth": false,
     "grpc": false,
-    "domains": {},
-    "rules": {},
-    "force_ssl_redirection": true
+    "private": false,
+    "rules": {
+      "ingress-rules1": {
+        "service_name": "${service.nginx.out.attributes.service_name}",
+        "path": "/",
+        "port": "80",
+        "domain_prefix": "nignx"
+      }
+    },
+    "force_ssl_redirection": true,
+    "domains": {}
   }
 }
